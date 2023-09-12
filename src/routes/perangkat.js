@@ -13,25 +13,25 @@ router.get(
     controller.getAll
 );
 
-// router.get(
-//     "/getById/:id",
-//     controller.getById
-// );
+router.get(
+    "/getById/:id",
+    controller.getById
+);
 
 // router.get(
 //     "/getByInstansi/:id",
 //     controller.getByInstansi
 // );
 
-// router.put(
-//     "/update/:id",
-//     controller.updateOne
-// );
+router.put(
+    "/update/:id",
+    controller.updateOne
+);
 
-// router.delete(
-//     "/:id",
-//     controller.deleteOne
-// );
+router.delete(
+    "/:guid",
+    controller.deleteOne
+);
 
 // router.get(
 //     "/getCount/:id",

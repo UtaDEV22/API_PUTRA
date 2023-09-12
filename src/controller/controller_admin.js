@@ -1,5 +1,5 @@
 require("dotenv").config();
-const service = require("../services/services_pengguna");
+const service = require("../services/services_admin");
 const { requestResponse } = require("../utils");
 const logger = require("../utils/logger");
 const fileService = require("../services/file_service");
@@ -35,16 +35,16 @@ const getAll = async (req, res) => {
     res.json(response);
 }
 
-const getById = async (req, res) => {
-    try {
-        const data = await service.getById({ GUID: req.params.id });
-        response = { ...requestResponse.success, data };
-    } catch (error) {
-        logger.error(error);
-        response = { ...requestResponse.server_error };
-    }
-    res.json(response);
-}
+// const getById = async (req, res) => {
+//     try {
+//         const data = await service.getById({ KODE_PENGGUNA: req.params.id });
+//         response = { ...requestResponse.success, data };
+//     } catch (error) {
+//         logger.error(error);
+//         response = { ...requestResponse.server_error };
+//     }
+//     res.json(response);
+// }
 
 // const getByInstansi = async (req, res) => {
 //     try {
@@ -57,27 +57,27 @@ const getById = async (req, res) => {
 //     res.json(response);
 // }
 
-const updateOne = async (req, res) => {
-    try {
-        const data = await service.updateOne({ GUID: req.params.id }, req.body);
-        response = { ...requestResponse.success, data };
-    } catch (error) {
-        logger.error(error);
-        response = { ...requestResponse.server_error };
-    }
-    res.json(response);
-}
+// const updateOne = async (req, res) => {
+//     try {
+//         const data = await service.updateOne({ KODE_PENGGUNA: req.params.id }, req.body);
+//         response = { ...requestResponse.success, data };
+//     } catch (error) {
+//         logger.error(error);
+//         response = { ...requestResponse.server_error };
+//     }
+//     res.json(response);
+// }
 
-const deleteOne = async (req, res) => {
-    try {
-        const data = await service.deleteOne({ KODE_PENGGUNA: req.params.id });
-        response = { ...requestResponse.success, data };
-    } catch (error) {
-        logger.error(error);
-        response = { ...requestResponse.server_error };
-    }
-    res.json(response);
-}
+// const deleteOne = async (req, res) => {
+//     try {
+//         const data = await service.deleteOne({ KODE_PENGGUNA: req.params.id });
+//         response = { ...requestResponse.success, data };
+//     } catch (error) {
+//         logger.error(error);
+//         response = { ...requestResponse.server_error };
+//     }
+//     res.json(response);
+// }
 
 // const getCount = async (req, res) => {
 //     try {
@@ -93,9 +93,9 @@ const deleteOne = async (req, res) => {
 module.exports = {
     create,
     getAll,
-    getById,
+    // getById,
     // getByInstansi,
-    updateOne,
-    deleteOne
+    // updateOne,
+    // deleteOne,
     // getCount
 }

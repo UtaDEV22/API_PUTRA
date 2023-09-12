@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const controller = require("../controller/controller_pengguna");
+const controller = require("../controller/controller_suadmin");
 const { checkRequest, requiredRequest } = require("../utils");
 
 router.post(
@@ -13,25 +13,25 @@ router.get(
     controller.getAll
 );
 
-router.get(
-    "/getById/:id",
-    controller.getById
-);
+// router.get(
+//     "/getById/:id",
+//     controller.getById
+// );
 
 // router.get(
 //     "/getByInstansi/:id",
 //     controller.getByInstansi
 // );
 
-router.put(
-    "/update/:id",
-    controller.updateOne
-);
 
-router.delete(
-    "/:guid",
-    controller.deleteOne
-);
+// router.put(
+//     "/update/:id",
+//     controller.updateOne
+// );
+// router.delete(
+//     "/:id",
+//     controller.deleteOne
+// );
 
 // router.get(
 //     "/getCount/:id",

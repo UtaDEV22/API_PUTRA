@@ -1,12 +1,24 @@
 const bcrypt = require("bcrypt");
-const model = require("../model/model_perangkat");
+const model = require("../model/model_suadmin");
 const { requestResponse } = require("../utils");
 
 let response;
 
 const create = async (data) => {
+    const chekData = await model.findOne({ TELEPON: data.TELEPON }, { _id: false }, { lean: true });
+    
+    if (chekData !== undefined && chekData !== null) {
+        response = { ...requestResponse.unprocessable_entity };
+        response.message = "USER SUDAH TERDAFTAR";
+        return response;
+    }
+    
+    const password = data.PASSWORD;
+    const saltRounds = 12;
+    const hashPassword = await bcrypt.hash(password, saltRounds);
+    data.PASSWORD = hashPassword;
+
     await model.create(data);
-    console.log(data)
     return { ...requestResponse.success, data: model };
 };
 
@@ -14,9 +26,9 @@ const getAll = async (condition) => {
     return model.find(condition, { _id: false }, { lean: true });
 };
 
-const getById = async (condition) => {
-    return model.findOne(condition, { _id: false }, { lean: true });
-};
+// const getById = async (condition) => {
+//     return model.findOne(condition, { _id: false }, { lean: true });
+// };
 
 // const getByInstansi = async (condition) => {
 //     return model.find(condition, { _id: false }, { lean: true }).sort({ CREATED_AT: -1 });
@@ -35,9 +47,9 @@ const updateOne = async (condition, body) => {
 //     return model.findOne(condition, { _id: false }, { lean: true });
 // };
 
-const deleteOne = async (condition ) => {
-    return model.deleteOne(condition)
-};
+// const deleteOne = async (condition ) => {
+//     return model.deleteOne(condition)
+// };
 
 // const getCount = async (condition) => {
 //     return model.find(condition, { _id: false }, { lean: true }).count();
@@ -46,10 +58,10 @@ const deleteOne = async (condition ) => {
 module.exports = {
     create,
     getAll,
-    getById,
+    // getById,
     // getByInstansi,
-    updateOne,
-    deleteOne
+    // updateOne,
+    // deleteOne,
     // find,
     // getCount
 };

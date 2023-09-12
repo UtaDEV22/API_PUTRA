@@ -1,19 +1,37 @@
 const mongoose = require("mongoose");
-const collectionName = "perangkat";
+const collectionName = "admin";
 
 const UserSchema = new mongoose.Schema(
     {
         GUID: {
             type: String
         },
+        KODE_INSTANSI: {
+            type: String
+        },
         NAMA: {
             type: String
         },
-        MAC_ADDRESS: {
+        TELEPON: {
             type: String
         },
-        JENIS: {
+        ALAMAT: {
             type: String
+        },
+        PASSWORD: {
+            type: String
+        },
+        ROLE: {
+            type: String
+        },
+        DOMISILI: {
+            type: String
+        },
+        DITAMBAHKAN: {
+            type: String
+        },
+        STATUS: {
+            type: Number
         },
         CREATED_AT: {
             type: Date,

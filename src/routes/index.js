@@ -5,11 +5,14 @@ const authController = require("../controller/controller_auth");
 // const instansi = require("./instansi");
 // const jabatan = require("./jabatan");
 const pengguna = require("./pengguna");
+const admin = require("./admin");
+const suadmin = require("./suadmin");
 // const jenis_laporan = require("./jenis_laporan");
 // const laporan = require("./laporan");
 // const pemasok = require("./pemasok");
 // const pelanggan = require("./pelanggan");
 // const daftar_perangkat = require("./daftar_perangkat");
+const perangkat = require("./perangkat");
 
 let response;
 
@@ -23,18 +26,21 @@ router.get(
 );
 
 router.post(
-  "/pengguna/login",
+  "/suadmin/login",
   authController.login
 );
 
 // router.post(
-//   "/pengguna/login",
+//   "/admin/login",
 //   authController.loginPengguna
 // );
 
 // router.use("/instansi", instansi);
 // router.use("/jabatan", jabatan);
 router.use("/pengguna", pengguna);
+router.use("/perangkat", perangkat);
+router.use("/suadmin", suadmin);
+router.use("/admin", admin);
 // router.use("/jenis_laporan", jenis_laporan);
 // router.use("/laporan", laporan);
 // router.use("/pelanggan", pelanggan);

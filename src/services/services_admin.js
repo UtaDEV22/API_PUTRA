@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const model = require("../model/model_pengguna");
+const model = require("../model/model_admin");
 const { requestResponse } = require("../utils");
 
 let response;
@@ -26,30 +26,30 @@ const getAll = async (condition) => {
     return model.find(condition, { _id: false }, { lean: true });
 };
 
-const getById = async (condition) => {
-    return model.findOne(condition, { _id: false }, { lean: true });
-};
+// const getById = async (condition) => {
+//     return model.findOne(condition, { _id: false }, { lean: true });
+// };
 
 // const getByInstansi = async (condition) => {
 //     return model.find(condition, { _id: false }, { lean: true }).sort({ CREATED_AT: -1 });
 // };
 
-const updateOne = async (condition, body) => {
-    await model.updateOne(condition, body);
-    const user = await model.findOne({GUID: condition.GUID}, {id: false }, { lean: true });
-    const result =  { ...requestResponse.success, data:{
-        user: { ...user }
-    }};
-    return result;
-}
+// const updateOne = async (condition, body) => {
+//     await model.updateOne(condition, body);
+//     const data = await model.findOne({KODE_PENGGUNA: condition.KODE_PENGGUNA}, { _id: false }, { lean: true });
+//     const result = { ...requestResponse.success, data: {
+//         data: { ...data }
+//     }};
+//     return result;
+// }
 
 // const find = async (condition) => {
 //     return model.findOne(condition, { _id: false }, { lean: true });
 // };
 
-const deleteOne = async (condition ) => {
-    return model.deleteOne(condition)
-};
+// const deleteOne = async (condition ) => {
+//     return model.deleteOne(condition)
+// };
 
 // const getCount = async (condition) => {
 //     return model.find(condition, { _id: false }, { lean: true }).count();
@@ -58,10 +58,10 @@ const deleteOne = async (condition ) => {
 module.exports = {
     create,
     getAll,
-    getById,
+    // getById,
     // getByInstansi,
-    updateOne,
-    deleteOne,
+    // updateOne,
+    // deleteOne,
     // find,
     // getCount
 };

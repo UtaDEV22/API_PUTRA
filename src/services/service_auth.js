@@ -1,6 +1,9 @@
 require("dotenv").config();
 // const userModel = require("../model/model_instansi");
 const penggunaModel = require("../model/model_pengguna");
+const perangkatModel = require("../model/model_perangkat");
+const adminModel = require("../model/model_admin");
+const suadminModel = require("../model/model_suadmin");
 const { requestResponse } = require("../utils");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -11,7 +14,7 @@ let response;
 
 const signin = async ({ TELEPON, PASSWORD }) => {
 
-    const user = await penggunaModel.findOne({ TELEPON: TELEPON }, { _id: false }, { lean: true });
+    const user = await suadminModel.findOne({ TELEPON: TELEPON }, { _id: false }, { lean: true });
     
     if (user === null) {
         response = { ...requestResponse.unauthorized };
