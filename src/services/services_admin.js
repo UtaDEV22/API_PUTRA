@@ -26,9 +26,9 @@ const getAll = async (condition) => {
     return model.find(condition, { _id: false }, { lean: true });
 };
 
-// const getById = async (condition) => {
-//     return model.findOne(condition, { _id: false }, { lean: true });
-// };
+const getById = async (condition) => {
+    return model.findOne(condition, { _id: false }, { lean: true });
+};
 
 // const getByInstansi = async (condition) => {
 //     return model.find(condition, { _id: false }, { lean: true }).sort({ CREATED_AT: -1 });
@@ -58,7 +58,7 @@ const getAll = async (condition) => {
 module.exports = {
     create,
     getAll,
-    // getById,
+    getById
     // getByInstansi,
     // updateOne,
     // deleteOne,

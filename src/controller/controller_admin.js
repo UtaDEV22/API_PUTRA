@@ -35,16 +35,16 @@ const getAll = async (req, res) => {
     res.json(response);
 }
 
-// const getById = async (req, res) => {
-//     try {
-//         const data = await service.getById({ KODE_PENGGUNA: req.params.id });
-//         response = { ...requestResponse.success, data };
-//     } catch (error) {
-//         logger.error(error);
-//         response = { ...requestResponse.server_error };
-//     }
-//     res.json(response);
-// }
+const getById = async (req, res) => {
+    try {
+        const data = await service.getById({ KODE_PENGGUNA: req.params.id });
+        response = { ...requestResponse.success, data };
+    } catch (error) {
+        logger.error(error);
+        response = { ...requestResponse.server_error };
+    }
+    res.json(response);
+}
 
 // const getByInstansi = async (req, res) => {
 //     try {
@@ -93,7 +93,7 @@ const getAll = async (req, res) => {
 module.exports = {
     create,
     getAll,
-    // getById,
+    getById
     // getByInstansi,
     // updateOne,
     // deleteOne,

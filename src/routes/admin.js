@@ -13,10 +13,10 @@ router.get(
     controller.getAll
 );
 
-// router.get(
-//     "/getById/:id",
-//     controller.getById
-// );
+router.get(
+    "/getById/:id",
+    controller.getById
+);
 
 // router.get(
 //     "/getByInstansi/:id",
