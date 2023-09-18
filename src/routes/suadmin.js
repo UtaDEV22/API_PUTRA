@@ -13,10 +13,10 @@ router.get(
     controller.getAll
 );
 
-// router.get(
-//     "/getById/:id",
-//     controller.getById
-// );
+router.get(
+    "/getById/:id",
+    controller.getById
+);
 
 // router.get(
 //     "/getByInstansi/:id",
@@ -24,10 +24,10 @@ router.get(
 // );
 
 
-// router.put(
-//     "/update/:id",
-//     controller.updateOne
-// );
+router.put(
+    "/update/:id",
+    controller.updateOne
+);
 // router.delete(
 //     "/:id",
 //     controller.deleteOne

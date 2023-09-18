@@ -23,10 +23,10 @@ router.get(
 //     controller.getByInstansi
 // );
 
-// router.put(
-//     "/update/:id",
-//     controller.updateOne
-// );
+router.put(
+    "/update/:id",
+    controller.updateOne
+);
 
 // router.delete(
 //     "/:id",

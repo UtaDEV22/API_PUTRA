@@ -57,16 +57,16 @@ const getById = async (req, res) => {
 //     res.json(response);
 // }
 
-// const updateOne = async (req, res) => {
-//     try {
-//         const data = await service.updateOne({ KODE_PENGGUNA: req.params.id }, req.body);
-//         response = { ...requestResponse.success, data };
-//     } catch (error) {
-//         logger.error(error);
-//         response = { ...requestResponse.server_error };
-//     }
-//     res.json(response);
-// }
+const updateOne = async (req, res) => {
+    try {
+        const data = await service.updateOne({ KODE_PENGGUNA: req.params.id }, req.body);
+        response = { ...requestResponse.success, data };
+    } catch (error) {
+        logger.error(error);
+        response = { ...requestResponse.server_error };
+    }
+    res.json(response);
+}
 
 // const deleteOne = async (req, res) => {
 //     try {
@@ -93,9 +93,9 @@ const getById = async (req, res) => {
 module.exports = {
     create,
     getAll,
-    getById
+    getById,
     // getByInstansi,
-    // updateOne,
+    updateOne
     // deleteOne,
     // getCount
 }
