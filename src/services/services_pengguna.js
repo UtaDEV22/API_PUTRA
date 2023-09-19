@@ -5,20 +5,8 @@ const { requestResponse } = require("../utils");
 let response;
 
 const create = async (data) => {
-    const chekData = await model.findOne({ TELEPON: data.TELEPON }, { _id: false }, { lean: true });
-    
-    if (chekData !== undefined && chekData !== null) {
-        response = { ...requestResponse.unprocessable_entity };
-        response.message = "USER SUDAH TERDAFTAR";
-        return response;
-    }
-    
-    const password = data.PASSWORD;
-    const saltRounds = 12;
-    const hashPassword = await bcrypt.hash(password, saltRounds);
-    data.PASSWORD = hashPassword;
-
     await model.create(data);
+    console.log(data)
     return { ...requestResponse.success, data: model };
 };
 
