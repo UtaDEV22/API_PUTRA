@@ -70,7 +70,7 @@ const updateOne = async (req, res) => {
 
 const deleteOne = async (req, res) => {
     try {
-        const data = await service.deleteOne({ KODE_PENGGUNA: req.params.id });
+        const data = await service.deleteOne({ GUID: req.params.id });
         response = { ...requestResponse.success, data };
     } catch (error) {
         logger.error(error);

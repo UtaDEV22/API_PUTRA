@@ -28,10 +28,10 @@ router.put(
     "/update/:id",
     controller.updateOne
 );
-// router.delete(
-//     "/:id",
-//     controller.deleteOne
-// );
+router.delete(
+    "/:id",
+    controller.deleteOne
+);
 
 // router.get(
 //     "/getCount/:id",

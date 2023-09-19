@@ -47,9 +47,9 @@ const updateOne = async (condition, body) => {
 //     return model.findOne(condition, { _id: false }, { lean: true });
 // };
 
-// const deleteOne = async (condition ) => {
-//     return model.deleteOne(condition)
-// };
+const deleteOne = async (condition ) => {
+    return model.deleteOne(condition)
+};
 
 // const getCount = async (condition) => {
 //     return model.find(condition, { _id: false }, { lean: true }).count();
@@ -60,8 +60,8 @@ module.exports = {
     getAll,
     getById,
     // getByInstansi,
-    updateOne
-    // deleteOne,
+    updateOne,
+    deleteOne
     // find,
     // getCount
 };
