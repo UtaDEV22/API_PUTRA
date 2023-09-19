@@ -60,8 +60,8 @@ module.exports = {
     getAll,
     getById,
     // getByInstansi,
-    updateOne
-    // deleteOne,
+    updateOne,
+    deleteOne
     // find,
     // getCount
 };
