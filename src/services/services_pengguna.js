@@ -5,11 +5,14 @@ const { requestResponse } = require("../utils");
 let response;
 
 const create = async (data) => {
-    await model.create(data);
-    console.log(data)
-    return { ...requestResponse.success, data: model };
-};
-
+    const chekData = await model.findOne({ TELEPON: data.TELEPON }, { _id: false }, { lean: true });
+    
+    if (chekData !== undefined && chekData !== null) {
+        response = { ...requestResponse.unprocessable_entity };
+        response.message = "USER SUDAH TERDAFTAR";
+        return response;
+    };
+}
 const getAll = async (condition) => {
     return model.find(condition, { _id: false }, { lean: true });
 };
