@@ -68,16 +68,16 @@ const updateOne = async (req, res) => {
     res.json(response);
 }
 
-// const deleteOne = async (req, res) => {
-//     try {
-//         const data = await service.deleteOne({ GUID: req.params.id });
-//         response = { ...requestResponse.success, data };
-//     } catch (error) {
-//         logger.error(error);
-//         response = { ...requestResponse.server_error };
-//     }
-//     res.json(response);
-// }
+const deleteOne = async (req, res) => {
+    try {
+        const data = await service.deleteOne({ GUID: req.params.id });
+        response = { ...requestResponse.success, data };
+    } catch (error) {
+        logger.error(error);
+        response = { ...requestResponse.server_error };
+    }
+    res.json(response);
+}
 
 // const getCount = async (req, res) => {
 //     try {
