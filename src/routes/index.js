@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { requestResponse } = require("../utils/index");
 const authController = require("../controller/controller_auth");
-// const instansi = require("./instansi");
+const instansi = require("./instansi");
 // const jabatan = require("./jabatan");
 const pengguna = require("./pengguna");
 const admin = require("./admin");
@@ -35,7 +35,7 @@ router.post(
 //   authController.loginPengguna
 // );
 
-// router.use("/instansi", instansi);
+router.use("/instansi", instansi);
 // router.use("/jabatan", jabatan);
 router.use("/pengguna", pengguna);
 router.use("/perangkat", perangkat);
