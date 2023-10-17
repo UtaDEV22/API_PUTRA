@@ -13,7 +13,7 @@ const form = formidable();
 let response;
 
 const create = async (req, res) => {
-    try {
+    //try {
         req.body.GUID = v4();
         const data = await service.create(req.body);
         response = { ...data };
@@ -22,7 +22,7 @@ const create = async (req, res) => {
         response = { ...requestResponse.server_error };
     }
     res.json(response);
-};
+//};
 
 const getAll = async (req, res) => {
     try {
